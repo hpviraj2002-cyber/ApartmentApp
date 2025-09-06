@@ -54,6 +54,6 @@ public class Test {
 		System.out.println("Tax (20% slab): " + p2.calculateTax(20));
 		System.out.println("Last Digit of Phone Number: " + p2.lastdigphoneno());
 		System.out.println(p2.introduce());
-		System.out.println("-----------------------------------------------------------------------------");
+		//System.out.println("-----------------------------------------------------------------------------");
 	}
 }
