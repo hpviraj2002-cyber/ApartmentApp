@@ -2,6 +2,7 @@ package com.example.ApartmentApp;
 
 import java.time.LocalDate;
 import java.time.Period;
+import java.util.Scanner;
 
 class Person {
 
@@ -10,21 +11,23 @@ class Person {
     private String phoneNo;
     private int salary;
     private String gender;
-    private String state;
-    private String city;
-    private String flatFloor;
+    private Address address;
+    private boolean isElder;
 
 
-    public Person(String name, LocalDate dob, String phoneNo, int salary,
-                  String gender, String city, String state, String flatFloor) {
+
+    public Person(String name, int salary) {
+        this.name = name;
+        this.salary = salary;
+    }
+
+    public Person(String name, LocalDate dob, String phoneNo, int salary, String gender, Address address) {
         this.name = name;
         this.dob = dob;
         this.phoneNo = phoneNo;
         this.salary = salary;
         this.gender = gender;
-        this.city = city;
-        this.state = state;
-        this.flatFloor = flatFloor;
+        this.address = address;
     }
 
     public double calculateTax() {
@@ -50,28 +53,32 @@ class Person {
         return ldp;
     }
 
-    public void lastdigEvenOrOdd()
+    public void phoneNumberEndsWithEvenOrOdd()
     {
-
+        int phoneNoLen = phoneNo.length();
+        char c = phoneNo.charAt(phoneNoLen - 1);
+        String s = String.valueOf(c);
+        int d = Integer.parseInt(s);
+        if(d%2 == 0)
+            System.out.println("Phone number Ends with Even ");
+        else
+            System.out.println("Phone number Ends with Odd ");
 
     }
 
 
 
     public String introduce() {
-        String introducingMsg = "";
-
-        // Hello I am Mr Viraj and i am 22 years old and I pay tax of Ruppees
-        // 10000.
+        String introducingMsg = ""; // assignement
 
         double tax = calculateTax();
         int age = calculateAge();
 
         if (gender.equalsIgnoreCase("Male")) {
-            introducingMsg = "Hello I am Mr " + name + " from " + city + ", " + state + " and I am " + age
+            introducingMsg = "Hello I am Mr " + name + " from  and I am " + age
                     + " years old and I pay tax of Ruppees " + tax;
         } else {
-            introducingMsg = "Hello I am Mrs " + name + " from " + city+ ", " + state + " and I am " + age
+            introducingMsg = "Hello I am Mrs " + name + " from and I am " + age
                     + " years old and I pay tax of Ruppees " + tax;
         }
 
@@ -84,57 +91,53 @@ class Person {
         System.out.println("DOB: " + dob);
         System.out.println("Phone: " + phoneNo);
         System.out.println("Salary: " + salary);
-        System.out.println("City: " + city);
-        System.out.println("State: " + state);
-        System.out.println("My Flat is in : " + flatFloor +" floor.");
+        System.out.println("Address: " + address);
 
     }
 
-    @Override
-    public int hashCode() {
-        final int prime = 31;
-        int result = 1;
-        result = prime * result + ((dob == null) ? 0 : dob.hashCode());
-        result = prime * result + ((gender == null) ? 0 : gender.hashCode());
-        result = prime * result + ((name == null) ? 0 : name.hashCode());
-        result = prime * result + ((phoneNo == null) ? 0 : phoneNo.hashCode());
-        result = prime * result + salary;
-        return result;
+    public String getNameAndAge(){
+        String nameAge = null;
+
+        if(name.equals("chirag"))
+            nameAge = null;
+        else
+            nameAge = name + 22;
+
+        return nameAge;
     }
 
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (obj == null)
-            return false;
-        if (getClass() != obj.getClass())
-            return false;
-        Person other = (Person) obj;
-        if (dob == null) {
-            if (other.dob != null)
-                return false;
-        } else if (!dob.equals(other.dob))
-            return false;
-        if (gender == null) {
-            if (other.gender != null)
-                return false;
-        } else if (!gender.equals(other.gender))
-            return false;
-        if (name == null) {
-            if (other.name != null)
-                return false;
-        } else if (!name.equals(other.name))
-            return false;
-        if (phoneNo == null) {
-            if (other.phoneNo != null)
-                return false;
-        } else if (!phoneNo.equals(other.phoneNo))
-            return false;
-        if (salary != other.salary)
-            return false;
-        return true;
+    public String getFloor(){
+        String floor = address.getFloor();
+        return floor;
+    }
+
+
+    public void TotalMarksPercentage()
+    {
+        int totalmarks = 0;
+        float percentage;
+
+        int[] arr1 = new int[5];
+        int a1;
+        for(int i =0;i<5;i++)
+        {
+            Scanner scan = new Scanner(System.in);
+            a1 = scan.nextInt();
+            arr1 [i] = a1;
+
+        }
+        for(int i =0;i<5;i++)
+        {
+            totalmarks = totalmarks + arr1[i];
+        }
+
+        percentage = ((float)totalmarks/ arr1.length);
+        System.out.println("Total marks obtained by " + name + ":" + totalmarks);
+        System.out.println("Percentage obtained by " + name + ":" + percentage+"%");
     }
 
 }
+
+
+
 
