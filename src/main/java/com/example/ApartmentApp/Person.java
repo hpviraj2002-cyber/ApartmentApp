@@ -136,6 +136,20 @@ class Person {
         System.out.println("Percentage obtained by " + name + ":" + percentage+"%");
     }
 
+    @Override
+    public String toString() {
+        /*return "Person{" +
+                "name='" + name + '\'' +
+                ", dob=" + dob +
+                ", phoneNo='" + phoneNo + '\'' +
+                ", salary=" + salary +
+                ", gender='" + gender + '\'' +
+                ", address=" + address +
+                ", isElder=" + isElder +
+                '}';*/
+
+        return "person hesru = "+name+" avanau ee date alli huttida " + dob;
+    }
 }
 
 

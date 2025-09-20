@@ -69,7 +69,7 @@ public  class ApartmentTest {
         Flat f5 = new Flat();
 
         f5.setFloor(2);
-        f5.setFlatId("105");
+        f5.setFlatId("104");
         f5.setRent(5500);
 
         Person[] persons5 = new Person[2];
@@ -170,7 +170,7 @@ public  class ApartmentTest {
     }
 
     public static List<String> flatPayingHighestRent_collection() {
-        ArrayList<String>  highestPayingFlatsList = new ArrayList<>();
+        List<String>  highestPayingFlatsList = new ArrayList<>();
         String highestPayingRentFlat = null;
         Flat[] flats = app.getFlats();
         int highestPayingRent = highestPayingRent();
@@ -178,14 +178,10 @@ public  class ApartmentTest {
         {
             if (highestPayingRent == flats[i].getRent())
             {
-               highestPayingFlatsList.add(flats[i].getFlatId());
-
+               highestPayingFlatsList.add(flats[i].getFlatId());//
             }
-
         }
-
         return highestPayingFlatsList;
-
     }
 
     public static int[] getAllFloors_array()
@@ -207,19 +203,21 @@ public  class ApartmentTest {
 
     public static Set<Integer> getAllFloors_collections()
     {
-        Set<Integer> availableflats = new HashSet<>();
+        Set<Integer> availableflats = new TreeSet<>();
         Apartment app = getApartment();
         Flat[] flats = app.getFlats();
         for (int i = 0; i < flats.length; i++)
         {
             int floor = flats[i].getFloor();
-            availableflats.add(floor);
+            boolean add = availableflats.add(floor);
+            System.out.println(add);
 
         }
 
         return availableflats;
 
     }
+
 
 
 
@@ -234,6 +232,8 @@ public  class ApartmentTest {
         List<String> highestPayingRentFlatId3 = flatPayingHighestRent_collection();
         int[] allFloors = getAllFloors_array();
         Set<Integer> allFloors2  = getAllFloors_collections();
+        Map<String, Integer> flatsWithRent = getFlatsWithRent();
+        Map<String, Flat> flatsWithId = getFlatsWithId();
         System.out.println("TotalRent = " + totalRent);
         System.out.println("Total No Of Flats = " + totalNoOfFlats1 );
         System.out.println("Highest Paying Rent Amount = " + highestPayingRent1 );
@@ -242,8 +242,49 @@ public  class ApartmentTest {
         System.out.println("Flat Paying Highest Rent Collection  = " + highestPayingRentFlatId3);
         System.out.println("Available Floors Arrays  = " + Arrays.toString(allFloors));
         System.out.println("Available Floors Collections  = " + allFloors2);
+        System.out.println("Falts With Rent Map : ");
+        System.out.println(flatsWithRent);
 
+        System.out.println();
+        System.out.println("Flats details");
+        for (Map.Entry<String, Flat> entry : flatsWithId.entrySet()){
+            System.out.println(entry.getKey() +" ----- "+entry.getValue());
+        }
+    }
 
+    public static Map<String, Integer> getFlatsWithRent()
+    {
+        Map<String, Integer> flatsWithRent = new HashMap<>();
+
+        Apartment apartment = getApartment();
+        Flat[] flats = apartment.getFlats();
+
+        for (int i = 0; i < flats.length; i++) {
+            String flatId = flats[i].getFlatId();
+            int rent = flats[i].getRent();
+
+            flatsWithRent.put(flatId, rent);
+        }
+
+        return flatsWithRent;
+    }
+
+    public static Map<String, Flat> getFlatsWithId()
+    {
+        Map<String, Flat> flatsWithIdMap = new HashMap<>();
+
+        Apartment apartment = getApartment();
+        Flat[] flats = apartment.getFlats();
+
+        for (int i = 0; i < flats.length; i++) {
+            String flatId = flats[i].getFlatId();
+            int rent = flats[i].getRent();
+
+            Flat replacedFlat = flatsWithIdMap.put(flatId, flats[i]);
+            System.out.println(replacedFlat);
+        }
+
+        return flatsWithIdMap;
     }
 }
 
@@ -251,3 +292,4 @@ public  class ApartmentTest {
 // find highest paying rent.
 // find the flat paying highest rent
 // find get the floors
+//find the flats along with rent paying
