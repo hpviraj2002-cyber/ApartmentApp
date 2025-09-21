@@ -20,16 +20,6 @@ public class Flat {
         return Objects.hash(flatId, floor, rent, Arrays.hashCode(persons));
     }
 
-    @Override
-    public String toString() {
-        return "Flat{" +
-                "flatId='" + flatId + '\'' +
-                ", floor=" + floor +
-                ", rent=" + rent +
-                ", persons=" + Arrays.toString(persons) +
-                '}';
-    }
-
     public String getFlatId() {
         return flatId;
     }
@@ -60,5 +50,15 @@ public class Flat {
 
     public void setPersons(Person[] persons) {
         this.persons = persons;
+    }
+
+    @Override
+    public String toString() {
+        return "Flat{" +
+                "flatId='" + flatId + '\'' +
+                ", floor=" + floor +
+                ", rent=" + rent +
+                ", persons=" + Arrays.toString(persons) +
+                '}';
     }
 }

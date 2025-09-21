@@ -35,7 +35,7 @@ public class Test {
         add1.setState("Karnataka");
         add1.setPinCode(577004);
 		Person p = new Person("H P Viraj", LocalDate.of(2002, 03, 11),
-				"9876543210", 120000, "Male", add1);
+				"9876543210", 120000, "Male", add1, false);
 
 		p.showDetails();
 		System.out.println("Age: " + p.calculateAge());
@@ -60,7 +60,7 @@ public class Test {
         add2.setPinCode(577004);
 
 		Person p1 = new Person("Meenakka P", LocalDate.of(1980, 02, 02),
-				"9876543215", 520000, "Female", add2);
+				"9876543215", 520000, "Female", add2, true);
 		p1.showDetails();
 		System.out.println("Age: " + p1.calculateAge());
 		System.out.println("Tax (10%): " + p1.calculateTax());
@@ -86,7 +86,7 @@ public class Test {
         add3.setPinCode(577004);
 		
 		Person p2 = new Person("Chirag P", LocalDate.of(2005, 03, 16),
-				"9876543215", 820000, "Male", add3);
+				"9876543215", 820000, "Male", add3, true);
 		p2.showDetails();
 		System.out.println("Age: " + p2.calculateAge());
 		System.out.println("Tax (10%): " + p2.calculateTax());

@@ -21,13 +21,14 @@ class Person {
         this.salary = salary;
     }
 
-    public Person(String name, LocalDate dob, String phoneNo, int salary, String gender, Address address) {
+    public Person(String name, LocalDate dob, String phoneNo, int salary, String gender, Address address, boolean isElder) {
         this.name = name;
         this.dob = dob;
         this.phoneNo = phoneNo;
         this.salary = salary;
         this.gender = gender;
         this.address = address;
+        this.isElder = isElder;
     }
 
     public double calculateTax() {
@@ -138,7 +139,7 @@ class Person {
 
     @Override
     public String toString() {
-        /*return "Person{" +
+        return "Person{" +
                 "name='" + name + '\'' +
                 ", dob=" + dob +
                 ", phoneNo='" + phoneNo + '\'' +
@@ -146,9 +147,65 @@ class Person {
                 ", gender='" + gender + '\'' +
                 ", address=" + address +
                 ", isElder=" + isElder +
-                '}';*/
+                '}';
 
-        return "person hesru = "+name+" avanau ee date alli huttida " + dob;
+        //return "person hesru = "+name+" avanau ee date alli huttida " + dob;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public LocalDate getDob() {
+        return dob;
+    }
+
+    public void setDob(LocalDate dob) {
+        this.dob = dob;
+    }
+
+    public String getPhoneNo() {
+        return phoneNo;
+    }
+
+    public void setPhoneNo(String phoneNo) {
+        this.phoneNo = phoneNo;
+    }
+
+    public int getSalary() {
+        return salary;
+    }
+
+    public void setSalary(int salary) {
+        this.salary = salary;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+
+    public boolean isElder() {
+        return isElder;
+    }
+
+    public void setElder(boolean elder) {
+        isElder = elder;
     }
 }
 
