@@ -1,6 +1,4 @@
-package com.example.ApartmentApp;
-
-import lombok.*;
+package com.example.ApartmentApp.apartmentProject;
 
 import java.util.Objects;
 

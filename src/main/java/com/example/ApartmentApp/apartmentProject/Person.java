@@ -1,10 +1,10 @@
-package com.example.ApartmentApp;
+package com.example.ApartmentApp.apartmentProject;
 
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.Scanner;
 
-class Person {
+public class Person  implements Comparable{
 
     private String name;
     private LocalDate dob;
@@ -206,6 +206,15 @@ class Person {
 
     public void setElder(boolean elder) {
         isElder = elder;
+    }
+
+    @Override
+    public int compareTo(Object o) {
+
+        Person p1 = this;
+        Person p2 = (Person) o;
+        return -(p1.getName().compareTo(p2.getName()));
+
     }
 }
 

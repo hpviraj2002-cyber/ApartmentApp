@@ -1,5 +1,8 @@
 package com.example.ApartmentApp;
 
+import com.example.ApartmentApp.apartmentProject.Address;
+import com.example.ApartmentApp.apartmentProject.Person;
+
 import java.time.LocalDate;
 
 public class Test {

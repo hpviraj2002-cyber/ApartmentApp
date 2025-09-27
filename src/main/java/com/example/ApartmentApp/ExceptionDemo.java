@@ -1,5 +1,7 @@
 package com.example.ApartmentApp;
 
+import com.example.ApartmentApp.apartmentProject.Person;
+
 public class ExceptionDemo {
 
     public static void main(String[] args) {

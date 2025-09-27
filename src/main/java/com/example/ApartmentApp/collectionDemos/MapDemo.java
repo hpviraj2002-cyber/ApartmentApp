@@ -1,4 +1,4 @@
-package com.example.ApartmentApp;
+package com.example.ApartmentApp.collectionDemos;
 
 import java.util.HashMap;
 import java.util.Map;

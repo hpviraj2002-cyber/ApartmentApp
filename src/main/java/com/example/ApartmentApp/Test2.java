@@ -1,5 +1,7 @@
 package com.example.ApartmentApp;
 
+import com.example.ApartmentApp.apartmentProject.Person;
+
 public class Test2 {
     int i = 0;
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package com.example.ApartmentApp;
+package com.example.ApartmentApp.apartmentProject;
 
 import java.util.Arrays;
 import java.util.Objects;
